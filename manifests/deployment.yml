@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: wp 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wp
+  template:
+    metadata:
+      labels:
+        app: wp 
+    spec:
+      containers:
+        - name: wp 
+          image: aksacr0001.azurecr.io/wp
+          ports:
+          - containerPort: 8080
